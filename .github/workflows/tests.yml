@@ -17,7 +17,9 @@ jobs:
           poetry-version: 1.1.10
       - name: install dependencies
         run: poetry install
-      - name: Run tests with sanic 21.6.2
+      - name: Downgrade Sanic to 21.6.2
+        run: poetry run pip install sanic==21.6.2
+      - name: Run tests again
         run: poetry run pytest
   test-sanic-21-9-0:
     runs-on: ubuntu-latest
@@ -34,7 +36,5 @@ jobs:
           poetry-version: 1.1.10
       - name: install dependencies
         run: poetry install
-      - name: Upgrade Sanic to 21.9.0
-        run: poetry run pip install sanic==21.9.0
       - name: Run tests again
         run: poetry run pytest
