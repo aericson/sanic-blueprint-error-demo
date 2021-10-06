@@ -1,6 +1,12 @@
 from sanic import Sanic
+from sanic.response import text
 
-from errors import bp
+import sentry_sdk
+
+sentry_sdk.init(
+    dsn=None,
+    environment="dev",
+)
 
 
 def init_app():
@@ -8,8 +14,6 @@ def init_app():
 
     @app.get("/")
     async def hello_world(request):
-        raise Exception("this is an exception")
-
-    app.blueprint(bp)
+        raise text("Hello World!\n")
 
     return app

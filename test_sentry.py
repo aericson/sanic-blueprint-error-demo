@@ -15,4 +15,4 @@ def test_client():
 def test_it(test_client):
     request, response = test_client.get("/")
 
-    assert response.text == "OOops"
+    assert response.text == "Hello World"
