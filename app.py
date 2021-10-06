@@ -4,7 +4,7 @@ from sanic.response import text
 import sentry_sdk
 
 sentry_sdk.init(
-    dsn=None,
+    dsn="https://3ff613d66c074adb89ff2e61b4a1f4b1@o119926.ingest.sentry.io/5996019",
     environment="dev",
 )
 
@@ -14,6 +14,6 @@ def init_app():
 
     @app.get("/")
     async def hello_world(request):
-        raise text("Hello World!\n")
+        return text("Hello World!\n")
 
     return app
